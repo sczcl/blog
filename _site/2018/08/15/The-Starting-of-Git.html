@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>git用法 - 长安的博客</title>
+    <meta name="author"  content="何须念长安">
+    <meta name="description" content="git用法">
+    <meta name="keywords"  content="jekyll, 前端开发, 设计">
+    <!-- Open Graph -->
+    <meta property="og:title" content="git用法 - 长安的博客">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://localhost:4000/2018/08/15/The-Starting-of-Git.html">
+    <meta property="og:description" content="小小Python学者，不定时发布一些学习记录">
+    <meta property="og:site_name" content="长安的博客">
+    <link rel="stylesheet" href="//cdn.staticfile.org/normalize/6.0.0/normalize.min.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_roc50gemkxpw4s4i.css">
+    <link rel="stylesheet" href="/assets/css/github-markdown.css">
+    <link rel="stylesheet" href="/assets/css/prism.css">
+    <link rel="stylesheet" href="/assets/css/share.min.css">
+    <link rel="stylesheet" href="/assets/css/app.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+	
+	<!--
+Author: Ray-Eldath
+refer to:
+ - http://docs.mathjax.org/en/latest/options/index.html
+-->
+
+	<script type="text/javascript" async src="https://cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+	
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+		jax: ["input/TeX", "output/HTML-CSS"],
+		tex2jax: {
+			inlineMath: [ ["$", "$"] ],
+			displayMath: [ ["$$", "$$"] ],
+			skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+		},
+		"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+      });
+    </script>
+
+	
+    <!--
+Author: Ray-Eldath
+-->
+<style>
+    .markdown-body .anchor{
+        float: left;
+        margin-top: -8px;
+        margin-left: -20px;
+        padding-right: 4px;
+        line-height: 1;
+        opacity: 0;
+    }
+    
+    .markdown-body .anchor .anchor-icon{
+        font-size: 15px
+    }
+</style>
+<script>
+    $(document).ready(function() {
+        let nodes = document.querySelector(".markdown-body").querySelectorAll("h1,h2,h3")
+        for(let node of nodes) {
+            var anchor = document.createElement("a")
+            var anchorIcon = document.createElement("i")
+            anchorIcon.setAttribute("class", "fa fa-anchor fa-lg anchor-icon")
+            anchorIcon.setAttribute("aria-hidden", true)
+            anchor.setAttribute("class", "anchor")
+            anchor.setAttribute("href", "#" + node.getAttribute("id"))
+            
+            anchor.onmouseover = function() {
+                this.style.opacity = "0.4"
+            }
+            
+            anchor.onmouseout = function() {
+                this.style.opacity = "0"
+            }
+            
+            anchor.appendChild(anchorIcon)
+            node.appendChild(anchor)
+        }
+    })
+</script>
+</head>
+
+
+<body>
+  <!--[if lt IE 10]>
+<div class="alert-danger" role="alert">你的浏览器实在太太太旧了，放学别走，升级完浏览器再说！<a target="_blank" class="alert-link" href="http://browsehappy.com">立即升级</a></div>
+<![endif]-->
+  <input id="nm-switch" type="hidden" value="true"> <header class="g-header">
+    <div class="g-logo">
+      <a href="/"></a>
+    </div>
+    <i id="menu-toggle" class="iconfont icon-menu"></i>
+    <nav class="g-nav">
+        <ul>
+            
+            <li><a href="/">home</a></li>
+            
+            <li><a href="/tags.html">tags</a></li>
+            
+        </ul>
+    </nav>
+</header>
+
+
+  <header class="g-banner post-header post-pattern-circuitBoard bgcolor-default " data-theme="default">
+    <div class="post-wrapper">
+      <div class="post-tags">
+        
+          
+            <a href="http://localhost:4000/tags#jekyll" class="post-tag">jekyll</a>
+          
+            <a href="http://localhost:4000/tags#%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91" class="post-tag">前端开发</a>
+          
+            <a href="http://localhost:4000/tags#%E8%AE%BE%E8%AE%A1" class="post-tag">设计</a>
+          
+        
+      </div>
+      <h1>git用法</h1>
+      <div class="post-meta">
+        <span class="post-meta-item"><i class="iconfont icon-author"></i><a href="http://localhost:4000" target="_blank" rel="author">何须念长安</a></></span>
+        <time class="post-meta-item" datetime="18-08-15"><i class="iconfont icon-date"></i>15 Aug 2018</time>
+      </div>
+    </div>
+    
+    <div class="filter"></div>
+      <div class="post-cover" style="background: url('') center no-repeat; background-size: cover;"></div>
+    
+  </header>
+
+  <div class="post-content visible">
+    
+    <h2 class="post-subtitle">git用法</h2>
+    
+
+    <article class="markdown-body">
+      <h3 id="代码高亮">代码高亮</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@requires_authorization</span>
+
+</code></pre></div></div>
+
+<h3 id="todolist">todolist</h3>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />已完成
+    <ul class="task-list">
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />已完成2</li>
+    </ul>
+  </li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />代办</li>
+</ul>
+
+<h2 id="git简介和安装">git简介和安装</h2>
+<h3 id="安装">安装，</h3>
+<p><a href="https://git-scm.com/downloads">下载地址</a><br />
+下载后默认安装就行，菜单中，Git Bash<br />
+然后配置账户名和密码，具体百度</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="n">global</span> <span class="n">user</span><span class="o">.</span><span class="na">name</span> <span class="s">"Your Name"</span> 
+<span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="n">global</span> <span class="n">user</span><span class="o">.</span><span class="na">email</span> <span class="s">"email@example.com"</span> 
+</code></pre></div></div>
+
+<h3 id="创建版本库">创建版本库</h3>
+<p>第一步使用<code class="highlighter-rouge">git init</code>命令，添加文件到仓库可以分两步：<br />
+-第一步使用命令<code class="highlighter-rouge">git add &lt;file&gt;</code>添加 
+-第二步使用<code class="highlighter-rouge">git commit -m "说明"</code>完成</p>
+<h2 id="时光穿梭机">时光穿梭机</h2>
+<p>使用<code class="highlighter-rouge">git status</code>查看状态情况 <br />
+使用<code class="highlighter-rouge">git diff</code>查看不同</p>
+<h3 id="版本回退">版本回退</h3>
+<p>使用<code class="highlighter-rouge">git log</code>查看日志，可以使用<code class="highlighter-rouge">git log --pretty=oneline</code>让它变成一行 <br />
+版本表示<code class="highlighter-rouge">HEAD^</code>表示上一个版本，<code class="highlighter-rouge">HEAD~x</code>表示x前的版本 <br />
+退回上一个版本使用<code class="highlighter-rouge">git reset --hard HEAD^</code>退回上个版本也可以通过<code class="highlighter-rouge">git reset --hard xxxx</code>退回到xxx版本指定版本号的版本 <br />
+通过<code class="highlighter-rouge">git reflog</code>查看自己的所有命令</p>
+<h3 id="工作区和缓存区">工作区和缓存区</h3>
+<h4 id="工作区就是目前工作目录如我的d">工作区就是目前工作目录，如我的D:/</h4>
+<h4 id="版本库就是git版本库其中存了stage的暂存区以及第一个分支master以及指向它的head图">版本库就是.git版本库，其中存了stage的暂存区，以及第一个分支master以及指向它的HEAD图</h4>
+<p><img src="https://cdn.liaoxuefeng.com/cdn/files/attachments/001384907702917346729e9afbf4127b6dfbae9207af016000/0" alt="" />
+其实git status查看的是暂存区的文件信息<br />
+<img src="https://cdn.liaoxuefeng.com/cdn/files/attachments/001384907720458e56751df1c474485b697575073c40ae9000/0" alt="" /></p>
+<h3 id="管理修改">管理修改</h3>
+<p>git优秀地方在于它管理的是修改，不是文件</p>
+<h3 id="撤销修改">撤销修改</h3>
+<p>使用<code class="highlighter-rouge">git checkout -- file</code>来丢弃工作区的修改<br />
+使用<code class="highlighter-rouge">git reset HEAD file</code>丢弃暂存区的内容</p>
+<h3 id="删除文件">删除文件</h3>
+<h2 id="远程仓库">远程仓库</h2>
+<p>所以过程是：
+-mkdir test
+-cd test
+-git init()
+-远程创建test
+-git remote add origin git@github.com:sczcl/mytest.git
+-git push -u origin master如果远程有文件，得先git pull –rebase origin master下载
+如果推不上去，则表示本地仓库为空，需要添加文件后再推送。
+使用
+<code class="highlighter-rouge">git add .</code>
+可以添加全部文件
+使用<code class="highlighter-rouge"> git remote add origin git@github.com:sczcl/mytest.git</code>添加远程仓库，其中origin是远程仓库，miche是用户名，使用<code class="highlighter-rouge">git push -u origin master</code>把本地库的所有放到远程上</p>
+<h3 id="克隆">克隆</h3>
+<p>创建一个项目，然后<code class="highlighter-rouge">git clone git@github.com:michaelliao/gitskills.git</code> 取下来</p>
+<h2 id="分支管理">分支管理</h2>
+<h3 id="创建和合并分支">创建和合并分支</h3>
+<p>git中版本控制分支是master分支
+<img src="https://cdn.liaoxuefeng.com/cdn/files/attachments/0013849087937492135fbf4bbd24dfcbc18349a8a59d36d000/0" alt="" />
+用<code class="highlighter-rouge">git checkout -b dev</code>创建并切换到dev分支
+使用<code class="highlighter-rouge">git branch</code>查看分支
+合并<code class="highlighter-rouge">git merge dev</code>然后就能使用<code class="highlighter-rouge">git branch -d dev</code>删除dev分支
+当master和分支都有新信息之后，不能快速合并。使用<code class="highlighter-rouge">git status</code>查看冲突。在«««&lt;和======之间是当前分支，======和»»»之间是有问题分支，修改之后就行
+使用<code class="highlighter-rouge">git log --graph --pretty=oneline --abbrev-commit</code>查看提交</p>
+<h3 id="分支管理策略">分支管理策略</h3>
+<p>合并分支Git可以的话会默认用Fast forward模式，这种模式下删除分支会丢弃分支信息。强制禁用这个模式的时候，Git会在merge的时候产生一个新的commit，我们可以用–no-ff的方式git merge，首先<code class="highlighter-rouge">git checkout -b dev</code>然后修改提交，然后<code class="highlighter-rouge">git merge --no-ff -m "merge with no-ff" dev</code>合并</p>
+<h3 id="bug分支">bug分支</h3>
+<p>在当前分支工作的时候发现还有bug不能提交，就是在主线上有问题，但是我们是在分支线上开发的，所以需要调整。这时候所以使用Git的stash功能将当前工作存储起来，等恢复以后继续。<code class="highlighter-rouge">git stash</code>
+修复完成以后使用<code class="highlighter-rouge">git stash list</code>查看存储的列表，使用两种方法恢复：
+	-第一种，使用<code class="highlighter-rouge">git stash apply</code>这时候完成了stash内容不删除，需要手动<code class="highlighter-rouge">git stash drop</code>
+	-第二种，用<code class="highlighter-rouge">git stash pop</code>这时候自动删除了</p>
+<h3 id="feature分支">Feature分支</h3>
+<p>为了防止出错，先建立一个Feature分支，在上面开发后合并，最后删除分支。列入开发Vulcan的新功能</p>
+<h3 id="多人协作">多人协作</h3>
+<p><code class="highlighter-rouge">git push origin 分支</code>推送到远程，</p>
+<h2 id="标签管理">标签管理</h2>
+<p>就是对版本库打标签，确定版本</p>
+<h3 id="创建标签">创建标签</h3>
+<p>首先切换到打标签的分支上，然后<code class="highlighter-rouge">git tag name</code>就可以打标签了，可以对指定id的打标签，<code class="highlighter-rouge">git tag name id</code>，或者<code class="highlighter-rouge">git tag -a name -m remark id</code>打标签，<code class="highlighter-rouge">git show name</code>看看到说明，看通过<code class="highlighter-rouge">git tag -s v</code>用私钥名一个标签</p>
+<h3 id="操作标签">操作标签</h3>
+<p><code class="highlighter-rouge">git tag -d name</code>可以删除</p>
+
+    </article>
+
+    
+    <div class="social-share-wrapper">
+      <div class="social-share"></div>
+    </div>
+    
+  </div>
+
+  <section class="author-detail">
+    <section class="post-footer-item author-card">
+      <div class="avatar">
+        <img src="http://localhost:4000/assets/img/profile.jpg" alt="">
+      </div>
+      <div class="author-name" rel="author">何须念长安</div>
+      <div class="bio">
+        <p>java开发者，Python学习者，生活爱好者，快乐创造者</p>
+      </div>
+      
+      <ul class="sns-links">
+        
+        <li>
+          <a href="//weibo.com/u/2180493614?profile_ftype=1&is_hot=1#_0" target="_blank">
+                    <i class="iconfont icon-weibo"></i>
+                </a>
+        </li>
+        
+        <li>
+          <a href="//github.com/sczcl" target="_blank">
+                    <i class="iconfont icon-github"></i>
+                </a>
+        </li>
+        
+      </ul>
+      
+    </section>
+    <section class="post-footer-item read-next">
+      
+      <div class="read-next-item">
+        <a href="/2018/08/17/SetUpJekyll.html" class="read-next-link"></a>
+        <section>
+          <span>搭建jekyll博客</span>
+          <p>        </p>
+        </section>
+        
+        <div class="filter"></div>
+        <img src="" alt="">
+        
+     </div>
+      
+
+      
+    </section>
+    <section class="post-footer-item comment">
+      <div id="disqus_thread"></div>
+    </section>
+  </section>
+
+  <footer class="g-footer">
+  <section>长安的博客 ©
+  
+  
+  2018
+  </section>
+  <section>Powered by <a href="//jekyllrb.com">Jekyll</a> | <a href="https://github.com/kaeyleo/jekyll-theme-H2O">Theme H2O</a></section>
+</footer>
+
+
+  <script src="/assets/js/social-share.min.js"></script>
+  <script>
+    socialShare('.social-share', {
+      sites: [
+        
+          'wechat'
+          ,
+          
+        
+          'weibo'
+          ,
+          
+        
+          'douban'
+          ,
+          
+        
+          'twitter'
+          
+        
+      ],
+      wechatQrcodeTitle: "分享到微信朋友圈",
+      wechatQrcodeHelper: '<p>扫码后点击右上角</p><p>将本文分享至朋友圈</p>'
+    });
+  </script>
+
+  
+
+  <script src="/assets/js/prism.js"></script>
+  <script src="/assets/js/index.min.js"></script>
+</body>
+
+</html>
