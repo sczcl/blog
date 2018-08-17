@@ -1,0 +1,21 @@
+[
+  
+    {
+      "title"    : "jekyll发布notebook编写的笔记",
+      "tags"     : "notebook ipython jekyll python",
+      "url"      : "/2018/08/17/ipython.html"
+    } ,
+  
+    {
+      "title"    : "搭建jekyll博客",
+      "tags"     : "jekyll blog",
+      "url"      : "/2018/08/17/SetUpJekyll.html"
+    } ,
+  
+    {
+      "title"    : "git用法",
+      "tags"     : "jekyll 前端开发 设计",
+      "url"      : "/2018/08/15/The-Starting-of-Git.html"
+    } 
+  
+]
